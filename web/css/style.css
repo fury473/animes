@@ -1,0 +1,17 @@
+.mdl-card__supporting-text {
+    font-size: 3em;
+    text-align: center;
+}
+
+.anime-watching .mdl-card__supporting-text {
+    color: #ACEC00;
+}
+.anime-completed .mdl-card__supporting-text {
+    color: #00BBD6;
+}
+.anime-dropped .mdl-card__supporting-text {
+    color: #BA65C9;
+}
+.anime-rewatched .mdl-card__supporting-text {
+    color: #EF3C79;
+}

@@ -1,0 +1,28 @@
+services:
+    # Event Listener
+    atarashii.listener.client_authentication:
+        class: Fury473\Bundle\AtarashiiBundle\EventListener\ClientAuthenticationListener
+        arguments:
+            - "@request_stack"
+        tags:
+            - {name: "kernel.event_listener", event: "guzzle_bundle.pre_transaction", method: "onPreTransaction"}
+
+    # Client
+    atarashii.client.default:
+        alias: guzzle.client.atarashii
+
+    # Service
+    atarashii.service.abstract:
+        class: Fury473\Bundle\AtarashiiBundle\Service\AbstractService
+        abstract: true
+        calls:
+            - [setSerializer, ['@serializer']]
+            - [setClient, ['@atarashii.client.default']]
+
+    atarashii.service.user:
+        class: Fury473\Bundle\AtarashiiBundle\Service\UserService
+        parent: atarashii.service.abstract
+
+    atarashii.service.anime:
+        class: Fury473\Bundle\AtarashiiBundle\Service\AnimeService
+        parent: atarashii.service.abstract
