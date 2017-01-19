@@ -62,7 +62,7 @@ class Anime implements DenormalizableInterface
     {
         $anime = new static();
 
-        if (isset($context['groups']) and in_array('list', $context['groups'])) {
+        if (isset($context['groups']) && in_array('list', $context['groups'])) {
             $this->fetchListData($anime, $data);
         } else {
             $anime->setId((int)$data['id']);

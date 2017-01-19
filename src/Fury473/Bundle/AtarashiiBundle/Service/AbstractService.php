@@ -54,7 +54,7 @@ class AbstractService
 
     /**
      * @param Client $client
-     * @return AbstractRestService
+     * @return AbstractService
      */
     public function setClient($client)
     {
@@ -64,7 +64,7 @@ class AbstractService
 
     /**
      * @param Serializer $serializer
-     * @return AbstractRestService
+     * @return AbstractService
      */
     public function setSerializer($serializer)
     {

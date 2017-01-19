@@ -39,13 +39,18 @@ class ClientAuthenticationListener implements GuzzleEventListenerInterface
     public function hasCredentials()
     {
         $request = $this->requestStack->getCurrentRequest();
-        return $request->getUser() and $request->getPassword();
+        return $request->getUser() && $request->getPassword();
     }
 
     public function getCredentials()
     {
         $request = $this->requestStack->getCurrentRequest();
         return 'Basic ' . base64_encode($request->getUser() . ":" . $request->getPassword());
+    }
+
+    public function getServiceName()
+    {
+        return $this->serviceName;
     }
 
     public function setServiceName($serviceName)

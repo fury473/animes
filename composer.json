@@ -4,7 +4,10 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-4": { "": "src/" },
+        "psr-4": {
+            "AppBundle\\": "src/AppBundle/",
+            "Fury473\\Bundle\\AtarashiiBundle\\": "src/Fury473/Bundle/AtarashiiBundle/"
+        },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {

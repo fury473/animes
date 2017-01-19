@@ -36,7 +36,7 @@ class Guard extends AbstractGuardAuthenticator
      */
     public function getCredentials(Request $request)
     {
-        if (!$request->getUser() or !$request->getPassword()) {
+        if (!$request->getUser() || !$request->getPassword()) {
             return null;
         }
 

@@ -2,7 +2,6 @@
 
 namespace Fury473\Bundle\AtarashiiBundle\Service;
 
-use Fury473\Bundle\AtarashiiBundle\Model\Account;
 use Fury473\Bundle\AtarashiiBundle\Model\Anime;
 use GuzzleHttp\Exception\ClientException;
 
@@ -32,14 +31,6 @@ class AnimeService extends AbstractService
         $response = $this->getClient()->request('GET', '/2.1/animelist/' . $username);
 
         return $this->getSerializer()->decode((string)$response->getBody(), 'json');
-        $myInfo = $data['myinfo'];
-        $list = $data[$type];
-        $account = (new Account())->denormalize($this->getSerializer(), $myInfo);
-        $animes = [];
-        foreach ($list as $row) {
-            $animes[] = (new Anime())->denormalize($this->getSerializer(), $row, null, ['groups' => ['list']]);
-        }
-        return ['infos' => $account, 'animes' => $animes];
     }
 
     /**
@@ -62,20 +53,5 @@ class AnimeService extends AbstractService
         }
 
         return $animes;
-    }
-
-
-    /**
-     * @param string $type
-     * @return string
-     */
-    private function getClass($type)
-    {
-        switch ($type) {
-            case static::TYPE_ANIME:
-                return Anime::class;
-            case static::TYPE_MANGA:
-                return Manga::class;
-        }
     }
 }

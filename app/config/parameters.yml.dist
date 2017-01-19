@@ -16,6 +16,6 @@ parameters:
     mailer_password:   ~
 
     # A secret key that's used to generate certain security-related tokens
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            43d78f24124a012749b1259c3710f1148d0e5dea
 
     atarashii_api_url: 'https://atarashii.fury473.com'
